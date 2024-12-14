@@ -10,6 +10,10 @@ import fs from "fs";
 import { fileURLToPath } from 'url';
 import { readFile } from "fs/promises";
 
+require('dotenv').config();
+const FIREBASE_DB_URL = process.env.FIREBASE_DB_URL;
+
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json()); 
@@ -28,7 +32,7 @@ const serviceAccount = JSON.parse(
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://capstone-c92e9-default-rtdb.firebaseio.com/",
+  databaseURL: FIREBASE_DB_URL,
 });
 
 const db = admin.database();
