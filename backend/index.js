@@ -10,7 +10,7 @@ import fs from "fs";
 import { fileURLToPath } from 'url';
 import { readFile } from "fs/promises";
 
-require('dotenv').config();
+
 const FIREBASE_DB_URL = process.env.FIREBASE_DB_URL;
 
 
